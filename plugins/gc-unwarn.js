@@ -2,7 +2,7 @@
 
 const handler = async (m, {conn, text, command, usedPrefix}) => {
   const datas = global
-  const idioma = datas.db.data.users[m.sender].language || global.defaultLenguaje
+  const idioma = datas.db.data.users[m.sender].language
   const _translate = JSON.parse(fs.readFileSync(`./src/languages/${idioma}.json`))
   const tradutor = _translate.plugins.gc_unwarn
 
@@ -19,7 +19,7 @@ const handler = async (m, {conn, text, command, usedPrefix}) => {
   user.warn -= 1;
   await m.reply(`${user.warn == 1 ? `*@${who.split`@`[0]}*` : `♻️ *@${who.split`@`[0]}*`}${tradutor.texto3} ${user.warn}/3*`, null, {mentions: [who]});
 };
-handler.command = /^(unwarn|delwarn|deladvertir|deladvertencia|delwarning)$/i;
+handler.command = /^(unwarn|delwarn|حذف-تحذير|deladvertencia|delwarning)$/i;
 handler.group = true;
 handler.admin = true;
 handler.botAdmin = true;

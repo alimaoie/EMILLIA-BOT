@@ -1,7 +1,7 @@
 
 const handler = async (m, {conn, participants, groupMetadata}) => {
   const datas = global
-  const idioma = datas.db.data.users[m.sender].language || global.defaultLenguaje
+  const idioma = datas.db.data.users[m.sender].language
   const _translate = JSON.parse(fs.readFileSync(`./src/languages/${idioma}.json`))
   const tradutor = _translate.plugins.gc_infogroup
 
@@ -49,6 +49,6 @@ ${tradutor.texto1[21]}  ${modoadmin ? '✅' : '❌'}
 };
 handler.help = ['infogrup'];
 handler.tags = ['group'];
-handler.command = /^(infogrupo|gro?upinfo|info(gro?up|gc))$/i;
+handler.command = /^(infogrupo|معلومات-المجموعه|info(gro?up|gc))$/i;
 handler.group = true;
 export default handler;

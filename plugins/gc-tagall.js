@@ -2,7 +2,7 @@
 
 const handler = async (m, {isOwner, isAdmin, conn, text, participants, args, command, usedPrefix}) => {
   const datas = global
-  const idioma = datas.db.data.users[m.sender].language || global.defaultLenguaje
+  const idioma = datas.db.data.users[m.sender].language
   const _translate = JSON.parse(fs.readFileSync(`./src/languages/${idioma}.json`))
   const tradutor = _translate.plugins.gc_tagall
 
@@ -17,12 +17,12 @@ const handler = async (m, {isOwner, isAdmin, conn, text, participants, args, com
   for (const mem of participants) {
     teks += `┣➥ @${mem.id.split('@')[0]}\n`;
   }
-  teks += `*└* 𝐁𝐲 𝐓𝐡𝐞 𝐌𝐲𝐬𝐭𝐢𝐜 - 𝐁𝐨𝐭\n\n*▌│█║▌║▌║║▌║▌║▌║█*`;
+  teks += `*└* ᎬmᎥᏞᏞᎥᎪ - ᏰᎧᏖ\n\n*▌│█║▌║▌𝚕𝚒𝚐𝚑𝚝║𝚔𝚊...║▌║▌║▌║█*`;
   conn.sendMessage(m.chat, {text: teks, mentions: participants.map((a) => a.id)} );
 };
 handler.help = ['tagall <mesaje>', 'invocar <mesaje>'];
 handler.tags = ['group'];
-handler.command = /^(tagall|invocar|invocacion|todos|invocación)$/i;
+handler.command = /^(tagall|invocar|invocacion|منشن|invocación)$/i;
 handler.admin = true;
 handler.group = true;
 export default handler;

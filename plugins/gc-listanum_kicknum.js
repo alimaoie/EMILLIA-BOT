@@ -5,7 +5,7 @@
 
 const handler = async (m, {conn, args, groupMetadata, participants, usedPrefix, command, isBotAdmin, isSuperAdmin}) => {
   const datas = global
-  const idioma = datas.db.data.users[m.sender].language || global.defaultLenguaje
+  const idioma = datas.db.data.users[m.sender].language
   const _translate = JSON.parse(fs.readFileSync(`./src/languages/${idioma}.json`))
   const tradutor = _translate.plugins.gc_listanum_kicknum
 
@@ -39,7 +39,7 @@ const handler = async (m, {conn, args, groupMetadata, participants, usedPrefix, 
       break;
   }
 };
-handler.command = /^(listanum|kicknum|listnum)$/i;
+handler.command = /^(طرد-رقم|kicknum|listnum)$/i;
 handler.group = handler.botAdmin = handler.admin = true;
 handler.fail = null;
 export default handler;

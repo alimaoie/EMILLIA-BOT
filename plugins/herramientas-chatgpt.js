@@ -22,7 +22,7 @@ const configuration = new Configuration({organization: global.openai_org_id, api
 const openaiii = new OpenAIApi(configuration);
 const handler = async (m, {conn, text, usedPrefix, command}) => {
   const datas = global
-  const idioma = datas.db.data.users[m.sender].language || global.defaultLenguaje
+  const idioma = datas.db.data.users[m.sender].language
   const _translate = JSON.parse(fs.readFileSync(`./src/languages/${idioma}.json`))
   const tradutor = _translate.plugins.herramientas_chatgpt
 
@@ -67,5 +67,5 @@ const handler = async (m, {conn, text, usedPrefix, command}) => {
    }
  }
 };
-handler.command = /^(openai|chatgpt|ia|robot|openai2|chatgpt2|ia2|robot2|Mystic|MysticBot)$/i;
+handler.command = /^(openai|chatgpt|ia|emii|openai2|chatgpt2|ia2|robot2|Emellia|ايميليا)$/i;
 export default handler;

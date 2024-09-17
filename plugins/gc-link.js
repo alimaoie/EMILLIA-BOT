@@ -3,7 +3,7 @@ import { prepareWAMessageMedia, generateWAMessageFromContent, getDevice } from "
 
 const handler = async (m, {conn, args}) => {
   const datas = global
-  const idioma = datas.db.data.users[m.sender].language || global.defaultLenguaje
+  const idioma = datas.db.data.users[m.sender].language
   const _translate = JSON.parse(fs.readFileSync(`./src/languages/${idioma}.json`))
   const tradutor = _translate.plugins.gc_link
 
@@ -62,7 +62,7 @@ const handler = async (m, {conn, args}) => {
 };
 handler.help = ['linkgroup'];
 handler.tags = ['group'];
-handler.command = /^(link(gro?up)?)$/i;
+handler.command = /^(link|لينك)$/i;
 handler.group = true;
 handler.botAdmin = true;
 export default handler;

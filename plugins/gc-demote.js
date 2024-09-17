@@ -2,7 +2,7 @@
 
 const handler = async (m, {conn, usedPrefix, text}) => {
   const datas = global
-  const idioma = datas.db.data.users[m.sender].language || global.defaultLenguaje
+  const idioma = datas.db.data.users[m.sender].language
   const _translate = JSON.parse(fs.readFileSync(`./src/languages/${idioma}.json`))
   const tradutor = _translate.plugins.gc_demote
 
@@ -33,7 +33,7 @@ const handler = async (m, {conn, usedPrefix, text}) => {
 };
 handler.help = ['*593xxx*', '*@usuario*', '*responder chat*'].map((v) => 'demote ' + v);
 handler.tags = ['group'];
-handler.command = /^(demote|quitarpoder|quitaradmin)$/i;
+handler.command = /^(demote|ازاله-اشراف|quitaradmin)$/i;
 handler.group = true;
 handler.admin = true;
 handler.botAdmin = true;

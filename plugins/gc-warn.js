@@ -1,7 +1,7 @@
 
 const handler = async (m, {conn, text, command, usedPrefix}) => {
   const datas = global
-  const idioma = datas.db.data.users[m.sender].language || global.defaultLenguaje
+  const idioma = datas.db.data.users[m.sender].language
   const _translate = JSON.parse(fs.readFileSync(`./src/languages/${idioma}.json`))
   const tradutor = _translate.plugins.gc_warn
 
@@ -55,7 +55,7 @@ const handler = async (m, {conn, text, command, usedPrefix}) => {
   return !1;
 };
 
-handler.command = /^(advertir|advertencia|warn|warning)$/i;
+handler.command = /^(advertir|تحذير|warn|warning)$/i;
 handler.group = true;
 handler.admin = true;
 handler.botAdmin = true;

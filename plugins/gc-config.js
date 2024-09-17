@@ -1,7 +1,7 @@
 
 const handler = async (m, {conn, args, usedPrefix, command}) => {
   const datas = global
-  const idioma = datas.db.data.users[m.sender].language || global.defaultLenguaje
+  const idioma = datas.db.data.users[m.sender].language
   const _translate = JSON.parse(fs.readFileSync(`./src/languages/${idioma}.json`))
   const tradutor = _translate.plugins.gc_config
 
@@ -10,24 +10,24 @@ const handler = async (m, {conn, args, usedPrefix, command}) => {
     'close': 'announcement',
     'abierto': 'not_announcement',
     'cerrado': 'announcement',
-    'abrir': 'not_announcement',
-    'cerrar': 'announcement',
+    'فتح': 'not_announcement',
+    'غلق': 'announcement',
   }[(args[0] || '')];
   if (isClose === undefined) {
     throw `
 ${tradutor.texto1[0]}
 
 ${tradutor.texto1[1]}
-*┠┉↯ ${usedPrefix + command} abrir*
-*┠┉↯ ${usedPrefix + command} cerrar*
+*┠┉↯ ${usedPrefix + command} فتح*
+*┠┉↯ ${usedPrefix + command} غلق*
 `.trim();
   }
   await conn.groupSettingUpdate(m.chat, isClose);
   {m.reply(`${tradutor.texto1[0]}`);}
 };
-handler.help = ['group open / close', 'grupo abrir / cerrar'];
+handler.help = ['group open / close', 'جروب فتح / غلق'];
 handler.tags = ['group'];
-handler.command = /^(group|grupo)$/i;
+handler.command = /^(group|جروب)$/i;
 handler.admin = true;
 handler.botAdmin = true;
 export default handler;
