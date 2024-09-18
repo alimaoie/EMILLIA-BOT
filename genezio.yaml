@@ -1,0 +1,9 @@
+frontend:
+    path: ./
+    publish: ""
+    scripts:
+        build: npm run build
+        deploy: npm install
+name: EMILLIA-BOT
+region: eu-central-1
+yamlVersion: 2
