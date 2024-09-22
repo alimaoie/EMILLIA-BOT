@@ -5,7 +5,7 @@ let limit1 = 100; // Unused currently
 let limit2 = 400; // Limit in MB
 
 const handler = async (m, { conn, command }) => {
-  const videoDirectory = './src/video/emii'; // Changed the directory path
+  const videoDirectory = './src/video'; // Changed the directory path
 
   try {
     const files = await fs.readdir(videoDirectory); // Asynchronously read files in the directory
